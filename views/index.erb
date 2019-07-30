@@ -1,0 +1,25 @@
+<h1>Animal Shelter</h1>
+
+<h3>Animals</h3>
+<% if @animals.any? %>
+  <ul>
+    <% @animals.each do |animal| %>
+      <li><a href="/animals/<%= animal.id %>"><%= animal.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no animals at the shelter.</p>
+<% end %>
+<a href="/new_animal">Add animal</a>
+
+<h3>People</h3>
+<% if @people.any? %>
+  <ul>
+    <% @people.each do |person| %>
+      <li><a href="/people/<%= person.id %>"><%= person.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no people to display.</p>
+<% end %>
+<a href="/new_person">Add person</a>
