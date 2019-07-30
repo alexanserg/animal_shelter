@@ -1,0 +1,9 @@
+<h3><%= @animal.name %></h3>
+<h4>Type: <%= @animal.type %></h4>
+<h4>ID: <%= @animal.id %></h4>
+<h4>Admitted: <%= @animal.admitted %></h4>
+<form class="" action="/animals/<%= @animal.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button type="submit" name="button">Delete</button>
+</form>
+<a href="/">Back to home</a>

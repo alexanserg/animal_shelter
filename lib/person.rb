@@ -1,5 +1,6 @@
 class Person
-  def intialize(attributes)
+  attr_accessor :name, :type, :number, :id
+  def initialize(attributes)
     @name = attributes.fetch(:name)
     @type = attributes.fetch(:type)
     @number = attributes.fetch(:number).to_i
@@ -11,12 +12,12 @@ class Person
     people = []
     returned.each() do |person|
       name = person.fetch("name")
-      year = person.fetch("type")
-      cost = person.fetch("number").to_i
+      type = person.fetch("type")
+      number = person.fetch("number").to_i
       id = person.fetch("id").to_i
       people.push(Person.new({:name => name, :type => type, :number => number, :id => id}))
     end
-    returned
+    people
   end
 
   def self.clear
@@ -27,8 +28,8 @@ class Person
     person = DB.exec("SELECT * FROM people WHERE id = #{id};").first
     if person
       name = person.fetch("name")
-      year = person.fetch("type")
-      cost = person.fetch("number").to_i
+      type = person.fetch("type")
+      number = person.fetch("number").to_i
       id = person.fetch("id").to_i
       Person.new({:name => name, :type => type, :number => number, :id => id})
     else

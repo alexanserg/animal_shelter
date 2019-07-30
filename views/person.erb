@@ -1,0 +1,8 @@
+<h3><%= @person.name %></h3>
+<h4>Looking for: <%= @person.type %></h4>
+<h4>Number: <%= @person.number %></h4>
+<form class="" action="/people/<%= @person.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button type="submit" name="button">Delete</button>
+</form>
+<a href="/">Back to home</a>
